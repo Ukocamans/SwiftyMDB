@@ -13,7 +13,6 @@ import Alamofire
 
 protocol Request: class {
     
-    var endpoint: String{get}
     var params: [String]{get}
     var paramHeaders: [String]{get}
     var showLoading: Bool{get}
@@ -27,7 +26,6 @@ class NetworkRequest<T: Codable>: Request{
     var apiV = "1"
     
     var params: [String] = []
-    var endpoint: String = ""
     var paramHeaders: [String] = []
     var showLoading: Bool = true
     
@@ -49,8 +47,8 @@ class NetworkRequest<T: Codable>: Request{
     }
     
     func createPath() -> String {
-        var path = base + apiV + endpoint
-        var url = NSURLComponents(string: path)!
+        var path = base
+        let url = NSURLComponents(string: path)!
         var queryItems: [URLQueryItem] = []
         if params.count > 0 {
             for (index, header) in paramHeaders.enumerated() {
