@@ -164,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="94.902548725637189"/>
         </scene>
-        <!--List View Controller-->
+        <!--Title-->
         <scene sceneID="MQv-cS-jJa">
             <objects>
                 <viewController id="kFx-ss-B7T" customClass="ListViewController" customModule="SwiftyMDB" customModuleProvider="target" sceneMemberID="viewController">
@@ -245,6 +245,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EJK-dn-P28"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="nrP-12-J5X">
+                        <barButtonItem key="rightBarButtonItem" image="filterIcon" id="JMa-6E-T4G">
+                            <connections>
+                                <action selector="filterTapped:" destination="kFx-ss-B7T" id="tJj-ud-3TV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableList" destination="eYt-Yu-ZeG" id="2As-Vm-mn7"/>
                         <segue destination="78f-I2-Yhj" kind="show" identifier="toDetail" id="d2c-AP-SqV"/>
@@ -360,4 +367,7 @@
             <point key="canvasLocation" x="138" y="95"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filterIcon" width="24" height="18"/>
+    </resources>
 </document>

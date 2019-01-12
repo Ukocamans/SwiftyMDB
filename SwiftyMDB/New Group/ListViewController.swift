@@ -25,6 +25,7 @@ class ListViewController: UIViewController {
         configureUI()
     }
     
+    //MARK: -UI
     func configureUI() {
         title = "IMDB List"
         
@@ -32,17 +33,20 @@ class ListViewController: UIViewController {
         tableList.delegate = self
     }
 
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //MARK: -NAVIGATION
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             let vc = segue.destination as! DetailViewController
             vc.viewModel = sender as? DetailViewModel
         }
     }
- 
+    
+    //MARK: -ACTIONS
+    @IBAction func filterTapped(_ sender: Any) {
+        
+    }
+    
+    //MARK: -REQUESTS
     func searchRequest() {
         let req = SearchRequest()
         req.search = self.filter?.search ?? ""
@@ -54,6 +58,18 @@ class ListViewController: UIViewController {
             self.viewModel.append(contentsOf: vm.list)
             self.tableList.reloadData()
             self.isRequesting = false
+        }
+    }
+    
+    func detailRequest(vm: ListCellViewModel) {
+        let req = DetailRequest()
+        if let imdbId = vm.model?.imdbID {
+            req.imdbId = imdbId
+            req.type = vm.type
+            req.year = vm.releaseYear
+            req.send { (vm, error) in
+                self.performSegue(withIdentifier: "toDetail", sender: vm)
+            }
         }
     }
 
@@ -76,15 +92,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ListCell
         guard let vm = cell.viewModel else { return }
-        let req = DetailRequest()
-        if let imdbId = vm.model?.imdbID {
-            req.imdbId = imdbId
-            req.type = vm.type
-            req.year = vm.releaseYear
-            req.send { (vm, error) in
-                self.performSegue(withIdentifier: "toDetail", sender: vm)
-            }
-        }
+        detailRequest(vm: vm)
     }
 }
 
