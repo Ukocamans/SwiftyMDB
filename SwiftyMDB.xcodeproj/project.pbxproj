@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E5EBDDD21E9C6E8001FAD9E /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDDC21E9C6E8001FAD9E /* ListCellViewModel.swift */; };
+		2E5EBDE021E9CB4B001FAD9E /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */; };
 		2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95121E8C72C003A785D /* AppDelegate.swift */; };
 		2EF9F95421E8C72C003A785D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95321E8C72C003A785D /* ViewController.swift */; };
 		2EF9F95721E8C72C003A785D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF9F95521E8C72C003A785D /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		101999646EEC65F2F99BF52B /* Pods_SwiftyMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E5EBDDC21E9C6E8001FAD9E /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
+		2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		2EF9F94E21E8C72C003A785D /* SwiftyMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF9F95121E8C72C003A785D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF9F95321E8C72C003A785D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E5EBDDE21E9CB2B001FAD9E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		2EF9F94521E8C72B003A785D = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		2EF9F95021E8C72C003A785D /* SwiftyMDB */ = {
 			isa = PBXGroup;
 			children = (
+				2E5EBDDE21E9CB2B001FAD9E /* Utilities */,
 				2EF9F98B21E8E033003A785D /* ViewModel */,
 				2EF9F98621E8CEDB003A785D /* Models */,
 				2EF9F97F21E8C9E8003A785D /* Network */,
@@ -384,6 +395,7 @@
 				2EF9F98821E8CEF9003A785D /* SearchResponse.swift in Sources */,
 				2E5EBDDD21E9C6E8001FAD9E /* ListCellViewModel.swift in Sources */,
 				2EF9F98521E8CD72003A785D /* SearchRequest.swift in Sources */,
+				2E5EBDE021E9CB4B001FAD9E /* AlertUtils.swift in Sources */,
 				2EF9F98F21E8E0BA003A785D /* BaseViewModel.swift in Sources */,
 				2EF9F98321E8CAD1003A785D /* NetworkRequest.swift in Sources */,
 				2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */,

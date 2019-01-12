@@ -32,12 +32,21 @@ class BaseViewModel<T: Codable>: ViewModel {
         //Empty
     }
     
+    init(model : T?) {
+        self.model = model
+    }
+    
     func errorHandling(dict: [String: Any]) {
         if let response = dict["Response"] as? String,
-            response == "False",
-            let error = dict["Error"] {
-            //show alert
+            response == ResponseType.Failure.rawValue,
+            let error = dict["Error"] as? String {
+            AlertUtils.shared.showAlert(title: "Error", message: error)
         }
         
     }
+}
+
+enum ResponseType: String {
+    case Failure = "False"
+    case Success = "True"
 }

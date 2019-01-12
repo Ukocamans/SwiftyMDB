@@ -28,7 +28,7 @@ class NetworkRequest<VM: ViewModel>: Request{
     var paramHeaders: [String] = []
     var showLoading: Bool = true
     
-    func send(completion: @escaping (VM?, Error?) -> Void) {
+    func send(completion: @escaping (VM, Error?) -> Void) {
         let link = createPath()
         
         Alamofire.request(link).responseJSON { response in
@@ -42,7 +42,7 @@ class NetworkRequest<VM: ViewModel>: Request{
                     print(error)
                 }
             }else {
-                //showAlert
+                AlertUtils.shared.showAlert(title: "Error", message: response.error?.localizedDescription)
             }
             
         }

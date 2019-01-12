@@ -12,7 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let req = SearchRequest()
+        req.search = "a"
+        
+        req.send { (vm, error) in
+            dump(vm)
+        }
     }
 
 
