@@ -85,7 +85,8 @@ class FilterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toList" {
             let vc = segue.destination as! ListViewController
-            vc.viewModel = sender as? ListViewModel
+            vc.viewModel = sender as? [ListCellViewModel]
+            vc.filter = FilterModel(search: txtTitle.text,type: selectedType, year: selectedYear)
         }
     }
     
@@ -106,7 +107,7 @@ class FilterViewController: UIViewController {
         req.type = selectedType
         req.year = selectedYear
         req.send { (vm, error) in
-            self.performSegue(withIdentifier: "toList", sender: vm)
+            self.performSegue(withIdentifier: "toList", sender: vm.list)
         }
     }
 }

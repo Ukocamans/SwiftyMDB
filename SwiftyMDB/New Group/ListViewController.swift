@@ -12,7 +12,11 @@ class ListViewController: UIViewController {
     
     @IBOutlet weak var tableList: UITableView!
     
-    var viewModel: ListViewModel!
+    var viewModel: [ListCellViewModel]!
+    
+    var pageNo = 1
+    var filter: FilterModel?
+    var isRequesting = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,18 +43,31 @@ class ListViewController: UIViewController {
         }
     }
  
+    func searchRequest() {
+        let req = SearchRequest()
+        req.search = self.filter?.search ?? ""
+        req.type = self.filter?.type ?? ""
+        req.year = self.filter?.year ?? ""
+        req.pageNo = pageNo
+        
+        req.send { (vm, error) in
+            self.viewModel.append(contentsOf: vm.list)
+            self.tableList.reloadData()
+            self.isRequesting = false
+        }
+    }
 
 }
 
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.list.count
+        return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as! ListCell
         
-        cell.viewModel = viewModel.list[indexPath.row]
+        cell.viewModel = viewModel[indexPath.row]
         cell.configureCell()
         
         return cell
@@ -68,6 +85,20 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
                 self.performSegue(withIdentifier: "toDetail", sender: vm)
             }
         }
-        
+    }
+}
+
+extension ListViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewHeight = scrollView.frame.size.height
+        let scrollContentSizeHeight = scrollView.contentSize.height
+        let scrollOffset = scrollView.contentOffset.y
+        if !isRequesting {
+            if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
+                isRequesting = true
+                pageNo += 1
+                searchRequest()
+            }
+        }
     }
 }
