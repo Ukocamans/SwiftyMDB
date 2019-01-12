@@ -22,6 +22,8 @@ class ListViewController: UIViewController {
     }
     
     func configureUI() {
+        title = "IMDB List"
+        
         tableList.dataSource = self
         tableList.delegate = self
     }
@@ -50,5 +52,20 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell()
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ListCell
+        guard let vm = cell.viewModel else { return }
+        let req = DetailRequest()
+        if let imdbId = vm.model?.imdbID {
+            req.imdbId = imdbId
+            req.type = vm.type
+            req.year = vm.releaseYear
+            req.send { (vm, error) in
+                self.performSegue(withIdentifier: "toDetail", sender: vm)
+            }
+        }
+        
     }
 }
