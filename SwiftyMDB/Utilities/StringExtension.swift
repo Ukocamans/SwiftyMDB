@@ -15,4 +15,11 @@ extension String {
         }
         return self
     }
+    
+    func EmptytoAll() -> String {
+        if self == "" {
+            return "All"
+        }
+        return self
+    }
 }

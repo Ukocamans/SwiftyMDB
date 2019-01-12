@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eYt-Yu-ZeG">
-                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="295" id="2lN-Uy-xTX" customClass="ListCell" customModule="SwiftyMDB" customModuleProvider="target">
@@ -225,11 +225,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-1H-A3T">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-1H-A3T">
+                                <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="X4m-gA-E9N"/>
+                                    <constraint firstAttribute="height" id="X4m-gA-E9N"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -254,6 +254,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableList" destination="eYt-Yu-ZeG" id="2As-Vm-mn7"/>
+                        <outlet property="viewFilter" destination="XYl-1H-A3T" id="Clk-65-FhQ"/>
+                        <outlet property="viewFilterHeight" destination="X4m-gA-E9N" id="dFI-HQ-jcH"/>
                         <segue destination="78f-I2-Yhj" kind="show" identifier="toDetail" id="d2c-AP-SqV"/>
                     </connections>
                 </viewController>

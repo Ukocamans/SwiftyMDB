@@ -21,6 +21,8 @@
 		2E5EBDF921EA4D1D001FAD9E /* IMDBType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDF821EA4D1D001FAD9E /* IMDBType.swift */; };
 		2E5EBDFB21EA4D7E001FAD9E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDFA21EA4D7E001FAD9E /* StringExtension.swift */; };
 		2E5EBDFD21EA5065001FAD9E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDFC21EA5065001FAD9E /* AppUtils.swift */; };
+		2E5EBDFF21EA55EE001FAD9E /* ListFilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5EBDFE21EA55EE001FAD9E /* ListFilterView.xib */; };
+		2E5EBE0121EA5600001FAD9E /* ListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBE0021EA5600001FAD9E /* ListFilterView.swift */; };
 		2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95121E8C72C003A785D /* AppDelegate.swift */; };
 		2EF9F95421E8C72C003A785D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95321E8C72C003A785D /* MainViewController.swift */; };
 		2EF9F95721E8C72C003A785D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF9F95521E8C72C003A785D /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		2E5EBDF821EA4D1D001FAD9E /* IMDBType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMDBType.swift; sourceTree = "<group>"; };
 		2E5EBDFA21EA4D7E001FAD9E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		2E5EBDFC21EA5065001FAD9E /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		2E5EBDFE21EA55EE001FAD9E /* ListFilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFilterView.xib; sourceTree = "<group>"; };
+		2E5EBE0021EA5600001FAD9E /* ListFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFilterView.swift; sourceTree = "<group>"; };
 		2EF9F94E21E8C72C003A785D /* SwiftyMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF9F95121E8C72C003A785D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF9F95321E8C72C003A785D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		2E5EBDE521E9F440001FAD9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E5EBE0221EA5608001FAD9E /* ListFilterView */,
 				2E5EBDE621E9F497001FAD9E /* TableCells */,
 			);
 			path = Views;
@@ -164,6 +169,15 @@
 				2E5EBDF421EA47D7001FAD9E /* Settings.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2E5EBE0221EA5608001FAD9E /* ListFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				2E5EBE0021EA5600001FAD9E /* ListFilterView.swift */,
+				2E5EBDFE21EA55EE001FAD9E /* ListFilterView.xib */,
+			);
+			path = ListFilterView;
 			sourceTree = "<group>";
 		};
 		2EF9F94521E8C72B003A785D = {
@@ -396,6 +410,7 @@
 				2EF9F95C21E8C72D003A785D /* LaunchScreen.storyboard in Resources */,
 				2EF9F95921E8C72D003A785D /* Assets.xcassets in Resources */,
 				2EF9F95721E8C72C003A785D /* Main.storyboard in Resources */,
+				2E5EBDFF21EA55EE001FAD9E /* ListFilterView.xib in Resources */,
 				2E5EBDF521EA47D7001FAD9E /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +483,7 @@
 			files = (
 				2EF9F98D21E8E099003A785D /* ListViewModel.swift in Sources */,
 				2EF9F95421E8C72C003A785D /* MainViewController.swift in Sources */,
+				2E5EBE0121EA5600001FAD9E /* ListFilterView.swift in Sources */,
 				2EF9F98821E8CEF9003A785D /* SearchResponse.swift in Sources */,
 				2E5EBDF721EA48C6001FAD9E /* FilterViewController.swift in Sources */,
 				2E5EBDF221EA4006001FAD9E /* FilterModel.swift in Sources */,

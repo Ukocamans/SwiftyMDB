@@ -18,6 +18,10 @@ class ListViewController: UIViewController {
     var filter: FilterModel?
     var isRequesting = false
     
+    @IBOutlet weak var viewFilter: UIView!
+    @IBOutlet weak var viewFilterHeight: NSLayoutConstraint!
+    var filterView: ListFilterView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,22 @@ class ListViewController: UIViewController {
         
         tableList.dataSource = self
         tableList.delegate = self
+        
+        filterView = Bundle.main.loadNibNamed("ListFilterView", owner: self, options: nil)?.first as! ListFilterView
+        filterView.filter = filter
+        filterView.delegate = self
+        if filterView.configureView() {
+            viewFilterHeight.constant = 50
+        }
+        viewFilter.addSubview(filterView)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let filterRect = CGRect(x: 0, y: 0, width: viewFilter.bounds.width, height: 50)
+        filterView.frame = filterRect
     }
 
     //MARK: -NAVIGATION
@@ -116,9 +136,22 @@ extension ListViewController: UIScrollViewDelegate {
     }
 }
 
+//MARK: FilterDelegate
 extension ListViewController: FilterDelegate {
-    func filter(vm: [ListCellViewModel]) {
+    func filter(vm: [ListCellViewModel], filter: FilterModel?) {
         self.viewModel = vm
+        filterView.filter = filter
+        if filterView.configureView() {
+            viewFilterHeight.constant = 50
+        }
         self.tableList.reloadData()
+    }
+}
+
+extension ListViewController: ListFilterViewDelegate {
+    func removeFilter() {
+        pageNo = 1
+        searchRequest()
+        viewFilterHeight.constant = 0
     }
 }

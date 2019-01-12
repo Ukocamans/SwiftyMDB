@@ -24,8 +24,8 @@ class FilterViewController: UIViewController {
     }
     
     func configureUI() {
-        lblType.text = filter?.type
-        lblYear.text = filter?.year
+        lblType.text = (filter?.type ?? "").EmptytoAll()
+        lblYear.text = (filter?.year ?? "").EmptytoAll()
     }
     
     @IBAction func typeTapped(_ sender: Any) {
@@ -69,12 +69,12 @@ class FilterViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
                 return
             }
-            delegate.filter(vm: vm)
+            delegate.filter(vm: vm, filter: self.filter)
             self.dismiss(animated: true, completion: nil)
         }
     }
 }
 
 protocol FilterDelegate {
-    func filter(vm: [ListCellViewModel])
+    func filter(vm: [ListCellViewModel], filter: FilterModel?)
 }
