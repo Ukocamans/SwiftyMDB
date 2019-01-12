@@ -28,6 +28,8 @@ class DetailViewController: UIViewController {
     }
     
     func configureUI() {
+        title = viewModel?.title
+        
         lblTitle.text = viewModel?.title
         imgPoster.sd_setImage(with: viewModel?.imageURL, completed: nil)
         lblGenre.text = viewModel?.genre
