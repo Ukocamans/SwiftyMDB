@@ -21,15 +21,15 @@ class AppUtils {
     func showLoading() {
         let vc = createVC(storyboardId: "Settings", vcId: "LoadingViewController")
         if loadingVC != nil {
-            loadingVC?.dismiss(animated: true, completion: nil)
+            loadingVC?.dismiss(animated: false, completion: nil)
         }
         loadingVC = vc
-        AlertUtils.shared.presentAlert(alert: vc, animated: true)
+        AlertUtils.shared.presentAlert(alert: vc, animated: false)
         
     }
     
     func hideLoading() {
-        loadingVC?.dismiss(animated: true, completion: nil)
+        loadingVC?.dismiss(animated: false, completion: nil)
         loadingVC = nil
     }
 }
