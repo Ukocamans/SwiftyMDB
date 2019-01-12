@@ -62,16 +62,14 @@ class FilterViewController: UIViewController {
         req.search = self.filter?.search ?? ""
         req.type = self.filter?.type ?? ""
         req.year = self.filter?.year ?? ""
-        
-        req.send { (vm, error) in
-            let vm = vm.list
-            self.dismiss(animated: true, completion: {
+        self.dismiss(animated: true, completion: {
+            req.send { (vm, error) in
+                let vm = vm.list
                 guard let delegate = self.delegate, vm.count > 0 else { return }
                 delegate.filter(vm: vm, filter: self.filter)
                 self.dismiss(animated: true, completion: nil)
-            })
-            
-        }
+            }
+        })
     }
 }
 

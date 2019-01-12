@@ -38,20 +38,20 @@ class ListViewController: UIViewController {
         
         tableList.tableFooterView = UIView()
         
-        filterView = Bundle.main.loadNibNamed("ListFilterView", owner: self, options: nil)?.first as! ListFilterView
+        filterView = (Bundle.main.loadNibNamed("ListFilterView", owner: self, options: nil)?.first as! ListFilterView)
         filterView.filter = filter
         filterView.delegate = self
+        viewFilter.addSubview(filterView)
         if filterView.configureView() {
             viewFilterHeight.constant = 50
         }
-        viewFilter.addSubview(filterView)
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        //view.layoutIfNeeded()
         
-        let filterRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
+        let filterRect = CGRect(x: 0.0, y: 0.0, width: viewFilter.bounds.width, height: viewFilterHeight.constant)
         filterView.frame = filterRect
     }
 
@@ -161,6 +161,7 @@ extension ListViewController: FilterDelegate {
     func filter(vm: [ListCellViewModel], filter: FilterModel?) {
         self.viewModel = vm
         filterView.filter = filter
+        self.filter = filter
         if filterView.configureView() {
             viewFilterHeight.constant = 50
         }

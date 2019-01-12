@@ -13,10 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="ListFilterView" translatesAutoresizingMaskIntoConstraints="NO" id="O7c-Ph-EOp" customClass="ListFilterView" customModule="SwiftyMDB" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efD-8e-pSX">
-                    <rect key="frame" x="20" y="15.5" width="39.5" height="19.5"/>
+                    <rect key="frame" x="20" y="15.5" width="39.5" height="19"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -28,7 +28,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66q-m5-gWe">
-                    <rect key="frame" x="250" y="9" width="110" height="32"/>
+                    <rect key="frame" x="255" y="9" width="110" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="MZw-bW-Jau"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                     <state key="normal" title="Remove Filters">
                         <color key="titleColor" red="0.28627450980000002" green="0.71372549019999998" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,14 +43,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="hnO-Sk-Qnv" firstAttribute="bottom" secondItem="66q-m5-gWe" secondAttribute="bottom" constant="9" id="3Jj-3U-eEH"/>
+                <constraint firstItem="66q-m5-gWe" firstAttribute="leading" secondItem="hnO-Sk-Qnv" secondAttribute="leading" constant="255" id="9aE-jJ-i01"/>
                 <constraint firstItem="efD-8e-pSX" firstAttribute="leading" secondItem="O7c-Ph-EOp" secondAttribute="leading" constant="20" id="P9F-SO-gmX"/>
-                <constraint firstItem="efD-8e-pSX" firstAttribute="centerY" secondItem="O7c-Ph-EOp" secondAttribute="centerY" id="Sga-JM-bWf"/>
+                <constraint firstItem="IF8-3P-RTo" firstAttribute="centerY" secondItem="efD-8e-pSX" secondAttribute="centerY" id="VMw-8z-90B"/>
                 <constraint firstAttribute="trailing" secondItem="66q-m5-gWe" secondAttribute="trailing" constant="15" id="VPW-Ry-lbA"/>
-                <constraint firstItem="66q-m5-gWe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="efD-8e-pSX" secondAttribute="trailing" constant="60" id="dHZ-st-fA3"/>
-                <constraint firstItem="IF8-3P-RTo" firstAttribute="centerY" secondItem="efD-8e-pSX" secondAttribute="centerY" id="n2V-i7-3h2"/>
+                <constraint firstItem="efD-8e-pSX" firstAttribute="top" secondItem="hnO-Sk-Qnv" secondAttribute="top" constant="15.5" id="Vpd-3D-qbT"/>
+                <constraint firstItem="hnO-Sk-Qnv" firstAttribute="bottom" secondItem="efD-8e-pSX" secondAttribute="bottom" constant="15.5" id="ZrW-VH-ex5"/>
                 <constraint firstItem="IF8-3P-RTo" firstAttribute="leading" secondItem="efD-8e-pSX" secondAttribute="trailing" constant="10" id="nff-XV-gXy"/>
-                <constraint firstItem="66q-m5-gWe" firstAttribute="centerY" secondItem="O7c-Ph-EOp" secondAttribute="centerY" id="xr0-wn-897"/>
-                <constraint firstAttribute="height" constant="50" id="yU0-cn-11R"/>
+                <constraint firstItem="66q-m5-gWe" firstAttribute="top" secondItem="hnO-Sk-Qnv" secondAttribute="top" constant="9" id="wT2-6k-6Gb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="hnO-Sk-Qnv"/>
@@ -56,6 +60,7 @@
                 <outlet property="lblType" destination="efD-8e-pSX" id="OHj-TD-M9S"/>
                 <outlet property="lblYear" destination="IF8-3P-RTo" id="5Up-6P-4qY"/>
             </connections>
+            <point key="canvasLocation" x="57.600000000000001" y="98.950524737631198"/>
         </view>
     </objects>
 </document>
