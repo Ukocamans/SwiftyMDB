@@ -2,23 +2,29 @@ PODS:
   - Alamofire (4.8.0)
   - IQKeyboardManagerSwift (6.0.4)
   - RLBAlertsPickers (1.1.1)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - IQKeyboardManagerSwift (= 6.0.4)
   - RLBAlertsPickers (~> 1.1.1)
+  - SDWebImage (~> 4.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - IQKeyboardManagerSwift
     - RLBAlertsPickers
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   RLBAlertsPickers: d8dd984ed0a686bd167554eeb4a3af5ae8d82d24
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: b7e9d68ce69bd791c7ebd60b767476e91cdca0db
+PODFILE CHECKSUM: 5a8fc26c1afb14dc783329fe86a81fac138d6e29
 
 COCOAPODS: 1.5.3

@@ -17,8 +17,10 @@ class DetailViewModel: BaseViewModel<DetailResponse> {
         return model?.genre ?? ""
     }
     
-    var imageURL: String {
-        return model?.poster ?? ""
+    var imageURL: URL? {
+        guard let urlStr = model?.poster else { return nil }
+        guard let url = URL(string: urlStr) else { return nil }
+        return url
     }
     
     var plot: String {

@@ -11,10 +11,10 @@
 		2E5EBDE021E9CB4B001FAD9E /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */; };
 		2E5EBDE421E9F3B6001FAD9E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE321E9F3B6001FAD9E /* ListViewController.swift */; };
 		2E5EBDE821E9F4B2001FAD9E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE721E9F4B2001FAD9E /* ListCell.swift */; };
-		2E5EBDF021EA11FC001FAD9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDEF21EA11FC001FAD9E /* DetailViewController.swift */; };
 		2E5EBDEA21EA0145001FAD9E /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE921EA0145001FAD9E /* DetailResponse.swift */; };
 		2E5EBDEC21EA01E9001FAD9E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDEB21EA01E9001FAD9E /* DetailViewModel.swift */; };
 		2E5EBDEE21EA03B0001FAD9E /* DetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDED21EA03B0001FAD9E /* DetailRequest.swift */; };
+		2E5EBDF021EA11FC001FAD9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDEF21EA11FC001FAD9E /* DetailViewController.swift */; };
 		2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95121E8C72C003A785D /* AppDelegate.swift */; };
 		2EF9F95421E8C72C003A785D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95321E8C72C003A785D /* FilterViewController.swift */; };
 		2EF9F95721E8C72C003A785D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF9F95521E8C72C003A785D /* Main.storyboard */; };
@@ -53,10 +53,10 @@
 		2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		2E5EBDE321E9F3B6001FAD9E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2E5EBDE721E9F4B2001FAD9E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		2E5EBDEF21EA11FC001FAD9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2E5EBDE921EA0145001FAD9E /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
 		2E5EBDEB21EA01E9001FAD9E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		2E5EBDED21EA03B0001FAD9E /* DetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequest.swift; sourceTree = "<group>"; };
+		2E5EBDEF21EA11FC001FAD9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2EF9F94E21E8C72C003A785D /* SwiftyMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF9F95121E8C72C003A785D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF9F95321E8C72C003A785D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -165,13 +165,13 @@
 		2EF9F95021E8C72C003A785D /* SwiftyMDB */ = {
 			isa = PBXGroup;
 			children = (
-				2E5EBDE521E9F440001FAD9E /* Views */,
 				2EF9F95121E8C72C003A785D /* AppDelegate.swift */,
 				2E5EBDE221E9D140001FAD9E /* ViewController */,
-				2E5EBDDE21E9CB2B001FAD9E /* Utilities */,
+				2E5EBDE521E9F440001FAD9E /* Views */,
 				2EF9F98B21E8E033003A785D /* ViewModel */,
 				2EF9F98621E8CEDB003A785D /* Models */,
 				2EF9F97F21E8C9E8003A785D /* Network */,
+				2E5EBDDE21E9CB2B001FAD9E /* Utilities */,
 				2EF9F95521E8C72C003A785D /* Main.storyboard */,
 				2EF9F95821E8C72D003A785D /* Assets.xcassets */,
 				2EF9F95A21E8C72D003A785D /* LaunchScreen.storyboard */,
@@ -418,12 +418,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RLBAlertsPickers/RLBAlertsPickers.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RLBAlertsPickers.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

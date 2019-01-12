@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
 
@@ -17,16 +18,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var lblGenre: UILabel!
     @IBOutlet weak var lblPlot: UILabel!
     
-    //var viewModel: DetailViewModel?
+    var viewModel: DetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureUI()
     }
     
     func configureUI() {
-        
+        lblTitle.text = viewModel?.title
+        imgPoster.sd_setImage(with: viewModel?.imageURL, completed: nil)
+        lblGenre.text = viewModel?.genre
+        lblPlot.text = viewModel?.plot
     }
     /*
     // MARK: - Navigation

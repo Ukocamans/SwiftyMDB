@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0D7415FBA50D45C22595E6BC697DF57"
+               BlueprintIdentifier = "E530D9504D630DB6B7EAB03B391FE670"
                BuildableName = "RLBAlertsPickers.framework"
                BlueprintName = "RLBAlertsPickers"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E0D7415FBA50D45C22595E6BC697DF57"
+            BlueprintIdentifier = "E530D9504D630DB6B7EAB03B391FE670"
             BuildableName = "RLBAlertsPickers.framework"
             BlueprintName = "RLBAlertsPickers"
             ReferencedContainer = "container:Pods.xcodeproj">
