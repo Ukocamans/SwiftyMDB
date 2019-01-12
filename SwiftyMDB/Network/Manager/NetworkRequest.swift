@@ -54,8 +54,10 @@ class NetworkRequest<VM: ViewModel>: Request{
         var queryItems: [URLQueryItem] = []
         if params.count > 0 {
             for (index, header) in paramHeaders.enumerated() {
-                let queryItem = URLQueryItem(name: header, value: params[index])
-                queryItems.append(queryItem)
+                if params[index] != "" {
+                    let queryItem = URLQueryItem(name: header, value: params[index])
+                    queryItems.append(queryItem)
+                }
             }
         }
         url.queryItems = queryItems
