@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "SwiftyMDB"
     }
 
     @IBAction func typeTapped(_ sender: Any) {
