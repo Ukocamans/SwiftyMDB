@@ -8,17 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let req = SearchRequest()
-        req.search = "a"
-        
-        req.send { (vm, error) in
-            dump(vm)
-        }
     }
 
 
