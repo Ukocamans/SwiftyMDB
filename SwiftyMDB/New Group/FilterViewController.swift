@@ -81,10 +81,17 @@ class FilterViewController: UIViewController {
             req.type = selectedType
             req.year = selectedYear
             req.send { (vm, error) in
-                dump(vm)
+                self.performSegue(withIdentifier: "toList", sender: vm)
             }
         }else {
             AlertUtils.shared.showAlert(title: "Warning", message: "Title need to be more than 2 characters")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toList" {
+            let vc = segue.destination as! ListViewController
+            vc.viewModel = sender as? ListViewModel
         }
     }
     
