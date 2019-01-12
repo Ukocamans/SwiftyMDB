@@ -15,6 +15,8 @@ class FilterViewController: UIViewController {
     
     var filter: FilterModel?
     
+    var delegate: FilterDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +54,27 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func filterTapped(_ sender: Any) {
-        
+        searchRequest()
     }
     
+    func searchRequest() {
+        let req = SearchRequest()
+        req.search = self.filter?.search ?? ""
+        req.type = self.filter?.type ?? ""
+        req.year = self.filter?.year ?? ""
+        
+        req.send { (vm, error) in
+            let vm = vm.list
+            guard let delegate = self.delegate, vm.count > 0 else {
+                self.dismiss(animated: true, completion: nil)
+                return
+            }
+            delegate.filter(vm: vm)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+}
+
+protocol FilterDelegate {
+    func filter(vm: [ListCellViewModel])
 }

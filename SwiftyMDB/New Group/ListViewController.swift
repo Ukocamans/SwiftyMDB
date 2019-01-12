@@ -43,7 +43,10 @@ class ListViewController: UIViewController {
     
     //MARK: -ACTIONS
     @IBAction func filterTapped(_ sender: Any) {
-        
+        let vc = AppUtils.shared.createVC(storyboardId: "Settings", vcId: "FilterViewController") as! FilterViewController
+        vc.filter = filter
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     //MARK: -REQUESTS
@@ -75,6 +78,7 @@ class ListViewController: UIViewController {
 
 }
 
+//MARK: TableView Delegate and DataSource
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
@@ -96,6 +100,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: Scroll View Delegate
 extension ListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollViewHeight = scrollView.frame.size.height
@@ -108,5 +113,12 @@ extension ListViewController: UIScrollViewDelegate {
                 searchRequest()
             }
         }
+    }
+}
+
+extension ListViewController: FilterDelegate {
+    func filter(vm: [ListCellViewModel]) {
+        self.viewModel = vm
+        self.tableList.reloadData()
     }
 }

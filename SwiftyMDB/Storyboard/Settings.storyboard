@@ -13,7 +13,7 @@
         <!--Filter View Controller-->
         <scene sceneID="JEn-6F-dCg">
             <objects>
-                <viewController id="nLR-nV-tfP" customClass="FilterViewController" customModule="SwiftyMDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nLR-nV-tfP" customClass="FilterViewController" customModule="SwiftyMDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JQh-fB-dn0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
