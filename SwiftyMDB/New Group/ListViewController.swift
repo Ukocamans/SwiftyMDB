@@ -36,6 +36,8 @@ class ListViewController: UIViewController {
         tableList.dataSource = self
         tableList.delegate = self
         
+        tableList.tableFooterView = UIView()
+        
         filterView = Bundle.main.loadNibNamed("ListFilterView", owner: self, options: nil)?.first as! ListFilterView
         filterView.filter = filter
         filterView.delegate = self
@@ -49,7 +51,7 @@ class ListViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let filterRect = CGRect(x: 0, y: 0, width: viewFilter.bounds.width, height: 50)
+        let filterRect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50)
         filterView.frame = filterRect
     }
 
@@ -66,11 +68,13 @@ class ListViewController: UIViewController {
         let vc = AppUtils.shared.createVC(storyboardId: "Settings", vcId: "FilterViewController") as! FilterViewController
         vc.filter = filter
         vc.delegate = self
-        present(vc, animated: true)
+        present(vc, animated: true, completion: {
+            vc.configureUI()
+        })
     }
     
     //MARK: -REQUESTS
-    func searchRequest() {
+    func paginationRequest() {
         let req = SearchRequest()
         req.search = self.filter?.search ?? ""
         req.type = self.filter?.type ?? ""
@@ -78,9 +82,13 @@ class ListViewController: UIViewController {
         req.pageNo = pageNo
         
         req.send { (vm, error) in
-            self.viewModel.append(contentsOf: vm.list)
-            self.tableList.reloadData()
-            self.isRequesting = false
+            guard vm.list.count > 0 else { return }
+            if vm.list.count > 0 {
+                self.viewModel.append(contentsOf: vm.list)
+                self.tableList.reloadData()
+                self.isRequesting = false
+            }
+            
         }
     }
     
@@ -93,6 +101,18 @@ class ListViewController: UIViewController {
             req.send { (vm, error) in
                 self.performSegue(withIdentifier: "toDetail", sender: vm)
             }
+        }
+    }
+    
+    func searchRequest() {
+        let req = SearchRequest()
+        req.search = self.filter?.search ?? ""
+        req.type = self.filter?.type ?? ""
+        req.year = self.filter?.year ?? ""
+        req.pageNo = pageNo
+        
+        req.send { (vm, error) in
+            self.viewModel = vm.list
         }
     }
 
@@ -130,7 +150,7 @@ extension ListViewController: UIScrollViewDelegate {
             if (scrollOffset + scrollViewHeight == scrollContentSizeHeight) {
                 isRequesting = true
                 pageNo += 1
-                searchRequest()
+                paginationRequest()
             }
         }
     }
@@ -151,6 +171,7 @@ extension ListViewController: FilterDelegate {
 extension ListViewController: ListFilterViewDelegate {
     func removeFilter() {
         pageNo = 1
+        filter = FilterModel(search: filter?.search, type: "", year: "")
         searchRequest()
         viewFilterHeight.constant = 0
     }

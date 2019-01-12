@@ -65,12 +65,12 @@ class FilterViewController: UIViewController {
         
         req.send { (vm, error) in
             let vm = vm.list
-            guard let delegate = self.delegate, vm.count > 0 else {
+            self.dismiss(animated: true, completion: {
+                guard let delegate = self.delegate, vm.count > 0 else { return }
+                delegate.filter(vm: vm, filter: self.filter)
                 self.dismiss(animated: true, completion: nil)
-                return
-            }
-            delegate.filter(vm: vm, filter: self.filter)
-            self.dismiss(animated: true, completion: nil)
+            })
+            
         }
     }
 }
