@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (4.8.0)
+  - RLBAlertsPickers (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - RLBAlertsPickers (~> 1.1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - RLBAlertsPickers
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  RLBAlertsPickers: d8dd984ed0a686bd167554eeb4a3af5ae8d82d24
 
-PODFILE CHECKSUM: c77f105e16731d05fcdd5b54b2d27f79da7021c6
+PODFILE CHECKSUM: 3b7bb8eb319aadfa2324aeb3484c252f0b203900
 
 COCOAPODS: 1.5.3
