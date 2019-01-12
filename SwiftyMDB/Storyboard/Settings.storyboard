@@ -10,6 +10,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Loading-->
+        <scene sceneID="Nte-W6-kzG">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" title="Loading" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gFI-uF-Yft" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EjA-Vs-nhl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="8Vn-Le-vep">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Vn-Le-vep" firstAttribute="centerY" secondItem="EjA-Vs-nhl" secondAttribute="centerY" id="8Bp-Nx-hO4"/>
+                            <constraint firstItem="8Vn-Le-vep" firstAttribute="centerX" secondItem="EjA-Vs-nhl" secondAttribute="centerX" id="dTq-34-xdy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dfY-qD-fFh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7SQ-7R-qeu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1126" y="173"/>
+        </scene>
         <!--Filter View Controller-->
         <scene sceneID="JEn-6F-dCg">
             <objects>
@@ -100,13 +124,30 @@
                                 <state key="normal" title="Filter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="filterTapped:" destination="nLR-nV-tfP" eventType="touchUpInside" id="cmF-n0-y43"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXl-zT-mO6">
+                                <rect key="frame" x="315" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="RwI-Vw-pCc"/>
+                                    <constraint firstAttribute="height" constant="40" id="c36-Ql-efL"/>
+                                </constraints>
+                                <state key="normal" image="closeIcon"/>
+                                <connections>
+                                    <action selector="closeTapped:" destination="nLR-nV-tfP" eventType="touchUpInside" id="kgN-vV-So1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hCw-mE-b7l" firstAttribute="trailing" secondItem="kXl-zT-mO6" secondAttribute="trailing" constant="20" id="F7p-wm-MOD"/>
                             <constraint firstItem="S2e-au-jRW" firstAttribute="leading" secondItem="hCw-mE-b7l" secondAttribute="leading" constant="30" id="JHq-Tu-hKD"/>
                             <constraint firstItem="O4j-hh-R26" firstAttribute="leading" secondItem="hCw-mE-b7l" secondAttribute="leading" constant="40" id="JP0-Sf-2k4"/>
                             <constraint firstItem="O4j-hh-R26" firstAttribute="centerX" secondItem="hCw-mE-b7l" secondAttribute="centerX" id="KNW-We-bLU"/>
@@ -121,6 +162,7 @@
                             <constraint firstItem="zTv-qk-EQV" firstAttribute="top" secondItem="S2e-au-jRW" secondAttribute="bottom" constant="35" id="jnk-sw-Ir7"/>
                             <constraint firstItem="JtK-8l-UxO" firstAttribute="top" secondItem="hCw-mE-b7l" secondAttribute="top" constant="35" id="lUl-6h-yf6"/>
                             <constraint firstItem="S2e-au-jRW" firstAttribute="width" secondItem="S2e-au-jRW" secondAttribute="height" multiplier="63:10" id="pDG-PW-e0g"/>
+                            <constraint firstItem="kXl-zT-mO6" firstAttribute="top" secondItem="hCw-mE-b7l" secondAttribute="top" constant="20" id="pdY-Kj-giC"/>
                             <constraint firstItem="JtK-8l-UxO" firstAttribute="centerX" secondItem="hCw-mE-b7l" secondAttribute="centerX" id="xVZ-f6-Wgh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hCw-mE-b7l"/>
@@ -145,4 +187,7 @@
             <point key="canvasLocation" x="-252" y="174"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="closeIcon" width="17" height="19"/>
+    </resources>
 </document>

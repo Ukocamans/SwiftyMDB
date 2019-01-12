@@ -28,7 +28,7 @@ class AlertUtils {
         presentAlert(alert: alert)
     }
     
-    func presentAlert(alert: UIAlertController) {
+    func presentAlert(alert: UIViewController, animated: Bool = true) {
         var vc = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController
         
         if vc?.presentedViewController != nil {
@@ -36,7 +36,7 @@ class AlertUtils {
         } else if vc?.presentingViewController != nil{
             vc = vc?.presentingViewController
         }
-        vc?.present(alert, animated: true)
+        vc?.present(alert, animated: animated)
     }
     
     func alertPicker(pickerViewValues: [[String]],completion: @escaping (String) -> Void) {

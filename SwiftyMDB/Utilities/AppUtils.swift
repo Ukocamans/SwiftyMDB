@@ -12,7 +12,24 @@ import UIKit
 class AppUtils {
     static let shared = AppUtils()
     
+    var loadingVC: UIViewController?
+    
     func createVC(storyboardId: String, vcId: String) -> UIViewController {
         return UIStoryboard(name: storyboardId, bundle: nil).instantiateViewController(withIdentifier: vcId)
+    }
+    
+    func showLoading() {
+        let vc = createVC(storyboardId: "Settings", vcId: "LoadingViewController")
+        if loadingVC != nil {
+            loadingVC?.dismiss(animated: true, completion: nil)
+        }
+        loadingVC = vc
+        AlertUtils.shared.presentAlert(alert: vc, animated: true)
+        
+    }
+    
+    func hideLoading() {
+        loadingVC?.dismiss(animated: true, completion: nil)
+        loadingVC = nil
     }
 }

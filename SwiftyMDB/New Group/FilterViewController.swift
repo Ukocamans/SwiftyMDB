@@ -57,19 +57,22 @@ class FilterViewController: UIViewController {
         searchRequest()
     }
     
+    @IBAction func closeTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func searchRequest() {
         let req = SearchRequest()
         req.search = self.filter?.search ?? ""
         req.type = self.filter?.type ?? ""
         req.year = self.filter?.year ?? ""
-        self.dismiss(animated: true, completion: {
-            req.send { (vm, error) in
-                let vm = vm.list
-                guard let delegate = self.delegate, vm.count > 0 else { return }
-                delegate.filter(vm: vm, filter: self.filter)
-                self.dismiss(animated: true, completion: nil)
-            }
-        })
+        
+        req.send { (vm, error) in
+            let vm = vm.list
+            guard let delegate = self.delegate, vm.count > 0 else { return }
+            delegate.filter(vm: vm, filter: self.filter)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

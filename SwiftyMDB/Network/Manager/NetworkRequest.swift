@@ -31,7 +31,13 @@ class NetworkRequest<VM: ViewModel>: Request{
     func send(completion: @escaping (VM, Error?) -> Void) {
         let link = createPath()
         
+        if showLoading{
+            AppUtils.shared.showLoading()
+        }
         Alamofire.request(link).responseJSON { response in
+            if self.showLoading {
+                AppUtils.shared.hideLoading()
+            }
             print("Request: \(String(describing: response.request))")   // original url request
             if response.error == nil {
                 do {
