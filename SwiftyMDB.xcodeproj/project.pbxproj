@@ -11,6 +11,9 @@
 		2E5EBDE021E9CB4B001FAD9E /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */; };
 		2E5EBDE421E9F3B6001FAD9E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE321E9F3B6001FAD9E /* ListViewController.swift */; };
 		2E5EBDE821E9F4B2001FAD9E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE721E9F4B2001FAD9E /* ListCell.swift */; };
+		2E5EBDEA21EA0145001FAD9E /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDE921EA0145001FAD9E /* DetailResponse.swift */; };
+		2E5EBDEC21EA01E9001FAD9E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDEB21EA01E9001FAD9E /* DetailViewModel.swift */; };
+		2E5EBDEE21EA03B0001FAD9E /* DetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5EBDED21EA03B0001FAD9E /* DetailRequest.swift */; };
 		2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95121E8C72C003A785D /* AppDelegate.swift */; };
 		2EF9F95421E8C72C003A785D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9F95321E8C72C003A785D /* FilterViewController.swift */; };
 		2EF9F95721E8C72C003A785D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF9F95521E8C72C003A785D /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 		2E5EBDDF21E9CB4B001FAD9E /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		2E5EBDE321E9F3B6001FAD9E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2E5EBDE721E9F4B2001FAD9E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		2E5EBDE921EA0145001FAD9E /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
+		2E5EBDEB21EA01E9001FAD9E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2E5EBDED21EA03B0001FAD9E /* DetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRequest.swift; sourceTree = "<group>"; };
 		2EF9F94E21E8C72C003A785D /* SwiftyMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EF9F95121E8C72C003A785D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EF9F95321E8C72C003A785D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF9F98421E8CD72003A785D /* SearchRequest.swift */,
+				2E5EBDED21EA03B0001FAD9E /* DetailRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -218,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				2EF9F98721E8CEF9003A785D /* SearchResponse.swift */,
+				2E5EBDE921EA0145001FAD9E /* DetailResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 				2EF9F98C21E8E099003A785D /* ListViewModel.swift */,
 				2EF9F98E21E8E0BA003A785D /* BaseViewModel.swift */,
 				2E5EBDDC21E9C6E8001FAD9E /* ListCellViewModel.swift */,
+				2E5EBDEB21EA01E9001FAD9E /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -430,9 +439,12 @@
 				2EF9F98821E8CEF9003A785D /* SearchResponse.swift in Sources */,
 				2E5EBDDD21E9C6E8001FAD9E /* ListCellViewModel.swift in Sources */,
 				2EF9F98521E8CD72003A785D /* SearchRequest.swift in Sources */,
+				2E5EBDEA21EA0145001FAD9E /* DetailResponse.swift in Sources */,
 				2E5EBDE021E9CB4B001FAD9E /* AlertUtils.swift in Sources */,
 				2E5EBDE821E9F4B2001FAD9E /* ListCell.swift in Sources */,
+				2E5EBDEE21EA03B0001FAD9E /* DetailRequest.swift in Sources */,
 				2EF9F98F21E8E0BA003A785D /* BaseViewModel.swift in Sources */,
+				2E5EBDEC21EA01E9001FAD9E /* DetailViewModel.swift in Sources */,
 				2EF9F98321E8CAD1003A785D /* NetworkRequest.swift in Sources */,
 				2E5EBDE421E9F3B6001FAD9E /* ListViewController.swift in Sources */,
 				2EF9F95221E8C72C003A785D /* AppDelegate.swift in Sources */,

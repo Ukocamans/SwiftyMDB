@@ -76,13 +76,7 @@ class FilterViewController: UIViewController {
     
     @IBAction func searchTapped(_ sender: UIButton) {
         if let title = txtTitle.text, title.count > 2{
-            let req = SearchRequest()
-            req.search = title
-            req.type = selectedType
-            req.year = selectedYear
-            req.send { (vm, error) in
-                self.performSegue(withIdentifier: "toList", sender: vm)
-            }
+            self.searchRequest(title: title)
         }else {
             AlertUtils.shared.showAlert(title: "Warning", message: "Title need to be more than 2 characters")
         }
@@ -103,6 +97,16 @@ class FilterViewController: UIViewController {
         
         static func getTypes() -> [String] {
             return [all.rawValue, movie.rawValue, series.rawValue, episode.rawValue]
+        }
+    }
+    
+    func searchRequest(title: String) {
+        let req = SearchRequest()
+        req.search = title
+        req.type = selectedType
+        req.year = selectedYear
+        req.send { (vm, error) in
+            self.performSegue(withIdentifier: "toList", sender: vm)
         }
     }
 }
