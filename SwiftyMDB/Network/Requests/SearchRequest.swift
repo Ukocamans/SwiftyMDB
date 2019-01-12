@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchRequest: NetworkRequest<SearchResponse> {
+class SearchRequest: NetworkRequest<FilterViewModel> {
     
     var search: String = ""
     

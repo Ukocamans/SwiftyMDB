@@ -18,8 +18,7 @@ protocol Request: class {
     var showLoading: Bool{get}
 }
 
-class NetworkRequest<T: Codable>: Request{
-    
+class NetworkRequest<VM: ViewModel>: Request{
     
     var base: String = "http://www.omdbapi.com/"
     var apiKey: String = "be8d9030"
@@ -29,20 +28,23 @@ class NetworkRequest<T: Codable>: Request{
     var paramHeaders: [String] = []
     var showLoading: Bool = true
     
-    func send(completion: @escaping (T?, Error?) -> Void) {
+    func send(completion: @escaping (VM?, Error?) -> Void) {
         let link = createPath()
         
         Alamofire.request(link).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
-            do {
-                let jsonData = response.data
-                let jsonDecoder = JSONDecoder()
-                let model = try jsonDecoder.decode(T.self, from: jsonData!)
-                completion(model, nil)
-            }catch {
-                print(error)
-                completion(nil, error)
+            if response.error == nil {
+                do {
+                    let dict = try JSONSerialization.jsonObject(with: response.data as! Data, options: []) as? [String: Any]
+                    let vm = VM(dict: dict ?? [:])
+                    completion(vm, nil)
+                } catch {
+                    print(error)
+                }
+            }else {
+                //showAlert
             }
+            
         }
     }
     

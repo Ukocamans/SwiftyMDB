@@ -8,14 +8,17 @@
 
 import Foundation
 
-struct SearchResponse: Codable {
+struct SearchResponse: Codable{
+    let error: String?
     let search: [Search]?
-    let totalResults, response: String?
+    let totalResults: String?
+    let response: String?
     
     enum CodingKeys: String, CodingKey {
         case search = "Search"
         case totalResults
         case response = "Response"
+        case error = "Error"
     }
     
     
