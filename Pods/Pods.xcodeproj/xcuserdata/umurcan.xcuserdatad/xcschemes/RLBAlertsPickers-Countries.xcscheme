@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E7BA552EB96A3980F6434DC2348DE3E"
+               BlueprintIdentifier = "DC01F1085B824BF84F8A4E8A7F39E192"
                BuildableName = "Countries.bundle"
                BlueprintName = "RLBAlertsPickers-Countries"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1E7BA552EB96A3980F6434DC2348DE3E"
+            BlueprintIdentifier = "DC01F1085B824BF84F8A4E8A7F39E192"
             BuildableName = "Countries.bundle"
             BlueprintName = "RLBAlertsPickers-Countries"
             ReferencedContainer = "container:Pods.xcodeproj">

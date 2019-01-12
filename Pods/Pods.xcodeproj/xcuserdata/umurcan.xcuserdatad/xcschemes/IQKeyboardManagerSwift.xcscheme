@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E0D7415FBA50D45C22595E6BC697DF57"
-               BuildableName = "RLBAlertsPickers.framework"
-               BlueprintName = "RLBAlertsPickers"
+               BlueprintIdentifier = "C235F77E101E742652CCF98FFDFA5182"
+               BuildableName = "IQKeyboardManagerSwift.framework"
+               BlueprintName = "IQKeyboardManagerSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E0D7415FBA50D45C22595E6BC697DF57"
-            BuildableName = "RLBAlertsPickers.framework"
-            BlueprintName = "RLBAlertsPickers"
+            BlueprintIdentifier = "C235F77E101E742652CCF98FFDFA5182"
+            BuildableName = "IQKeyboardManagerSwift.framework"
+            BlueprintName = "IQKeyboardManagerSwift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
