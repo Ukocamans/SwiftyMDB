@@ -9,7 +9,7 @@
 import Foundation
 
 struct FilterModel {
-    let search: String?
-    let type: String?
-    let year: String?
+    var search: String?
+    var type: String?
+    var year: String?
 }

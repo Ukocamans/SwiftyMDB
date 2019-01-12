@@ -39,5 +39,18 @@ class AlertUtils {
         vc?.present(alert, animated: true)
     }
     
-    
+    func alertPicker(pickerViewValues: [[String]],completion: @escaping (String) -> Void) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addPickerView(values: pickerViewValues) { (vc, picker, index, values) in
+            let str = values[index.column][index.row]
+            completion(str)
+        }
+        
+        let btnCancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(btnCancel)
+        
+        presentAlert(alert: alert)
+    }
 }
