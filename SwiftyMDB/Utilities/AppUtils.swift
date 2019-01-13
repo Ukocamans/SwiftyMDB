@@ -32,4 +32,10 @@ class AppUtils {
         loadingVC?.dismiss(animated: false, completion: nil)
         loadingVC = nil
     }
+    
+    static func debugPrint(_ obj: Any) {
+        #if DEBUG
+        print(obj)
+        #endif
+    }
 }

@@ -40,14 +40,14 @@ class NetworkRequest<VM: ViewModel>: Request{
             if self.showLoading {
                 AppUtils.shared.hideLoading()
             }
-            print("Request: \(String(describing: response.request))")   // original url request
+            AppUtils.debugPrint("Request: \(String(describing: response.request))")   // original url request
             if response.error == nil {
                 do {
                     let dict = try JSONSerialization.jsonObject(with: response.data as! Data, options: []) as? [String: Any]
                     let vm = VM(dict: dict ?? [:])
                     completion(vm, nil)
                 } catch {
-                    print(error)
+                    AppUtils.debugPrint(error)
                 }
             }else {
                 AlertUtils.shared.showAlert(title: "Error", message: response.error?.localizedDescription)

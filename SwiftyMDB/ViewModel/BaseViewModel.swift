@@ -24,7 +24,7 @@ class BaseViewModel<T: Codable>: ViewModel {
             model = try jsonDecoder.decode(T.self, from: jsonData)
             errorHandling(dict: dict)
         }catch {
-            print(error)
+            AppUtils.debugPrint(error)
         }
     }
     
