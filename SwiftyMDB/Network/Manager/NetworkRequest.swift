@@ -29,6 +29,8 @@ class NetworkRequest<VM: ViewModel>: Request{
     var showLoading: Bool = true
     
     func send(completion: @escaping (VM, Error?) -> Void) {
+        guard checkInternet() else { return }
+        
         let link = createPath()
         
         if showLoading{
@@ -69,5 +71,21 @@ class NetworkRequest<VM: ViewModel>: Request{
         url.queryItems = queryItems
         path = url.string!
         return path
+    }
+    
+    func checkInternet() -> Bool {
+        if Connectivity.isConnectedToInternet {
+            return true
+        } else {
+            AlertUtils.shared.showAlert(title: "Warning", message: "There is no Internet")
+            return false
+        }
+    }
+}
+
+struct Connectivity {
+    static let sharedInstance = NetworkReachabilityManager()!
+    static var isConnectedToInternet:Bool {
+        return self.sharedInstance.isReachable
     }
 }
