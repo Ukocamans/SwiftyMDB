@@ -113,6 +113,7 @@ class ListViewController: UIViewController {
         
         req.send { (vm, error) in
             self.viewModel = vm.list
+            self.tableList.reloadData()
         }
     }
 
